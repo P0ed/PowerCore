@@ -16,8 +16,8 @@ public final class Store<Component> {
 	public let newComponents: Stream<Index>
 	private let newComponentsPipe: Index -> ()
 
-	public let removedComponents: Stream<Entity>
-	private let removedComponentsPipe: Entity -> ()
+	public let removedComponents: Stream<(Entity, Component)>
+	private let removedComponentsPipe: (Entity, Component) -> ()
 
 	init(id: StoreID, entityManager: EntityManager) {
 		self.id = id
@@ -68,6 +68,7 @@ public final class Store<Component> {
 
 	public func removeAt(idx: Index) {
 		let entity = entities[idx]
+		let component = components[idx]
 		let lastIndex = entities.endIndex.predecessor()
 		let lastEntity = entities[lastIndex]
 
@@ -87,6 +88,6 @@ public final class Store<Component> {
 
 		entityManager?.setRemoveHandle(entity, storeID: id, handle: nil)
 
-		removedComponentsPipe(entity)
+		removedComponentsPipe(entity, component)
 	}
 }
