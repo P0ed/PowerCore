@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5FE123DE1D5F3C4E00C41BAC /* PowerCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123DA1D5F3C2200C41BAC /* PowerCore_tvOS.h */; };
+		5FE123DF1D5F3C5500C41BAC /* PowerCore_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123C61D5F3BE500C41BAC /* PowerCore_macOS.h */; };
+		5FE123E01D5F3C5900C41BAC /* PowerCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123C31D5F3BE500C41BAC /* PowerCore_iOS.h */; };
+		5FE123E41D5F3CF200C41BAC /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E11D5F3CF200C41BAC /* Entity.swift */; };
+		5FE123E51D5F3CF200C41BAC /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E11D5F3CF200C41BAC /* Entity.swift */; };
+		5FE123E61D5F3CF200C41BAC /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E11D5F3CF200C41BAC /* Entity.swift */; };
+		5FE123E71D5F3CF200C41BAC /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E21D5F3CF200C41BAC /* Store.swift */; };
+		5FE123E81D5F3CF200C41BAC /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E21D5F3CF200C41BAC /* Store.swift */; };
+		5FE123E91D5F3CF200C41BAC /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E21D5F3CF200C41BAC /* Store.swift */; };
+		5FE123EA1D5F3CF200C41BAC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E31D5F3CF200C41BAC /* World.swift */; };
+		5FE123EB1D5F3CF200C41BAC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E31D5F3CF200C41BAC /* World.swift */; };
+		5FE123EC1D5F3CF200C41BAC /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE123E31D5F3CF200C41BAC /* World.swift */; };
+		5FE123EE1D5F3D0800C41BAC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123ED1D5F3D0800C41BAC /* Cartfile */; };
+		5FE123EF1D5F3D0800C41BAC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123ED1D5F3D0800C41BAC /* Cartfile */; };
+		5FE123F01D5F3D0800C41BAC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123ED1D5F3D0800C41BAC /* Cartfile */; };
+		5FE123F71D5F439600C41BAC /* 531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123F31D5F439600C41BAC /* 531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap */; };
+		5FE123F81D5F439600C41BAC /* 6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123F41D5F439600C41BAC /* 6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap */; };
+		5FE123F91D5F439600C41BAC /* Fx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE123F51D5F439600C41BAC /* Fx.framework */; };
+		5FE123FA1D5F439600C41BAC /* Fx.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123F61D5F439600C41BAC /* Fx.framework.dSYM */; };
+		5FE123FE1D5F43A000C41BAC /* Fx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE123FC1D5F43A000C41BAC /* Fx.framework */; };
+		5FE123FF1D5F43A000C41BAC /* Fx.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 5FE123FD1D5F43A000C41BAC /* Fx.framework.dSYM */; };
+		5FE1240B1D5F43B800C41BAC /* A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap in Resources */ = {isa = PBXBuildFile; fileRef = 5FE124081D5F43B800C41BAC /* A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap */; };
+		5FE1240C1D5F43B800C41BAC /* Fx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE124091D5F43B800C41BAC /* Fx.framework */; };
+		5FE1240D1D5F43B800C41BAC /* Fx.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1240A1D5F43B800C41BAC /* Fx.framework.dSYM */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5FE123A81D5F3AEB00C41BAC /* PowerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PowerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE123B91D5F3BAC00C41BAC /* PowerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PowerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE123C21D5F3BE500C41BAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE123C31D5F3BE500C41BAC /* PowerCore_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerCore_iOS.h; sourceTree = "<group>"; };
+		5FE123C51D5F3BE500C41BAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE123C61D5F3BE500C41BAC /* PowerCore_macOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerCore_macOS.h; sourceTree = "<group>"; };
+		5FE123D11D5F3C0100C41BAC /* PowerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PowerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE123D91D5F3C2200C41BAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE123DA1D5F3C2200C41BAC /* PowerCore_tvOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerCore_tvOS.h; sourceTree = "<group>"; };
+		5FE123E11D5F3CF200C41BAC /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		5FE123E21D5F3CF200C41BAC /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		5FE123E31D5F3CF200C41BAC /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		5FE123ED1D5F3D0800C41BAC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		5FE123F31D5F439600C41BAC /* 531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap"; sourceTree = "<group>"; };
+		5FE123F41D5F439600C41BAC /* 6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap"; sourceTree = "<group>"; };
+		5FE123F51D5F439600C41BAC /* Fx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fx.framework; sourceTree = "<group>"; };
+		5FE123F61D5F439600C41BAC /* Fx.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Fx.framework.dSYM; sourceTree = "<group>"; };
+		5FE123FC1D5F43A000C41BAC /* Fx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fx.framework; sourceTree = "<group>"; };
+		5FE123FD1D5F43A000C41BAC /* Fx.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Fx.framework.dSYM; sourceTree = "<group>"; };
+		5FE124081D5F43B800C41BAC /* A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap"; sourceTree = "<group>"; };
+		5FE124091D5F43B800C41BAC /* Fx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fx.framework; sourceTree = "<group>"; };
+		5FE1240A1D5F43B800C41BAC /* Fx.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Fx.framework.dSYM; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FE123A41D5F3AEB00C41BAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123FE1D5F43A000C41BAC /* Fx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123B51D5F3BAC00C41BAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123F91D5F439600C41BAC /* Fx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123CD1D5F3C0100C41BAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE1240C1D5F43B800C41BAC /* Fx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5FE1239E1D5F3AEB00C41BAC = {
+			isa = PBXGroup;
+			children = (
+				5FE123ED1D5F3D0800C41BAC /* Cartfile */,
+				5FE123F11D5F436200C41BAC /* Frameworks */,
+				5FE123B31D5F3B7100C41BAC /* Source */,
+				5FE123AA1D5F3AEB00C41BAC /* Meta */,
+				5FE123A91D5F3AEB00C41BAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FE123A91D5F3AEB00C41BAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123A81D5F3AEB00C41BAC /* PowerCore.framework */,
+				5FE123B91D5F3BAC00C41BAC /* PowerCore.framework */,
+				5FE123D11D5F3C0100C41BAC /* PowerCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FE123AA1D5F3AEB00C41BAC /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123C11D5F3BE500C41BAC /* iOS */,
+				5FE123C41D5F3BE500C41BAC /* macOS */,
+				5FE123C71D5F3BE500C41BAC /* tvOS */,
+			);
+			path = Meta;
+			sourceTree = "<group>";
+		};
+		5FE123B31D5F3B7100C41BAC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123E11D5F3CF200C41BAC /* Entity.swift */,
+				5FE123E21D5F3CF200C41BAC /* Store.swift */,
+				5FE123E31D5F3CF200C41BAC /* World.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5FE123C11D5F3BE500C41BAC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123C21D5F3BE500C41BAC /* Info.plist */,
+				5FE123C31D5F3BE500C41BAC /* PowerCore_iOS.h */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5FE123C41D5F3BE500C41BAC /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123C51D5F3BE500C41BAC /* Info.plist */,
+				5FE123C61D5F3BE500C41BAC /* PowerCore_macOS.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		5FE123C71D5F3BE500C41BAC /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123D91D5F3C2200C41BAC /* Info.plist */,
+				5FE123DA1D5F3C2200C41BAC /* PowerCore_tvOS.h */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		5FE123F11D5F436200C41BAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FE124071D5F43B800C41BAC /* tvOS */,
+				5FE123FB1D5F43A000C41BAC /* Mac */,
+				5FE123F21D5F439600C41BAC /* iOS */,
+			);
+			name = Frameworks;
+			path = Carthage/Build;
+			sourceTree = "<group>";
+		};
+		5FE123F21D5F439600C41BAC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123F31D5F439600C41BAC /* 531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap */,
+				5FE123F41D5F439600C41BAC /* 6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap */,
+				5FE123F51D5F439600C41BAC /* Fx.framework */,
+				5FE123F61D5F439600C41BAC /* Fx.framework.dSYM */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5FE123FB1D5F43A000C41BAC /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				5FE123FC1D5F43A000C41BAC /* Fx.framework */,
+				5FE123FD1D5F43A000C41BAC /* Fx.framework.dSYM */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		5FE124071D5F43B800C41BAC /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5FE124081D5F43B800C41BAC /* A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap */,
+				5FE124091D5F43B800C41BAC /* Fx.framework */,
+				5FE1240A1D5F43B800C41BAC /* Fx.framework.dSYM */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5FE123A51D5F3AEB00C41BAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123DF1D5F3C5500C41BAC /* PowerCore_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123B61D5F3BAC00C41BAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123E01D5F3C5900C41BAC /* PowerCore_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123CE1D5F3C0100C41BAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123DE1D5F3C4E00C41BAC /* PowerCore_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5FE123A71D5F3AEB00C41BAC /* PowerCore_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FE123B01D5F3AEB00C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_macOS" */;
+			buildPhases = (
+				5FE123A31D5F3AEB00C41BAC /* Sources */,
+				5FE123A41D5F3AEB00C41BAC /* Frameworks */,
+				5FE123A51D5F3AEB00C41BAC /* Headers */,
+				5FE123A61D5F3AEB00C41BAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PowerCore_macOS;
+			productName = PowerCore;
+			productReference = 5FE123A81D5F3AEB00C41BAC /* PowerCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5FE123B81D5F3BAC00C41BAC /* PowerCore_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FE123BE1D5F3BAD00C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_iOS" */;
+			buildPhases = (
+				5FE123B41D5F3BAC00C41BAC /* Sources */,
+				5FE123B51D5F3BAC00C41BAC /* Frameworks */,
+				5FE123B61D5F3BAC00C41BAC /* Headers */,
+				5FE123B71D5F3BAC00C41BAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PowerCore_iOS;
+			productName = PowerCore_iOS;
+			productReference = 5FE123B91D5F3BAC00C41BAC /* PowerCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5FE123D01D5F3C0100C41BAC /* PowerCore_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FE123D61D5F3C0100C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_tvOS" */;
+			buildPhases = (
+				5FE123CC1D5F3C0100C41BAC /* Sources */,
+				5FE123CD1D5F3C0100C41BAC /* Frameworks */,
+				5FE123CE1D5F3C0100C41BAC /* Headers */,
+				5FE123CF1D5F3C0100C41BAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PowerCore_tvOS;
+			productName = PowerCore_tvOS;
+			productReference = 5FE123D11D5F3C0100C41BAC /* PowerCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FE1239F1D5F3AEB00C41BAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = P0ed;
+				TargetAttributes = {
+					5FE123A71D5F3AEB00C41BAC = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					5FE123B81D5F3BAC00C41BAC = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					5FE123D01D5F3C0100C41BAC = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 5FE123A21D5F3AEB00C41BAC /* Build configuration list for PBXProject "PowerCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5FE1239E1D5F3AEB00C41BAC;
+			productRefGroup = 5FE123A91D5F3AEB00C41BAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FE123A71D5F3AEB00C41BAC /* PowerCore_macOS */,
+				5FE123B81D5F3BAC00C41BAC /* PowerCore_iOS */,
+				5FE123D01D5F3C0100C41BAC /* PowerCore_tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5FE123A61D5F3AEB00C41BAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123FF1D5F43A000C41BAC /* Fx.framework.dSYM in Resources */,
+				5FE123EE1D5F3D0800C41BAC /* Cartfile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123B71D5F3BAC00C41BAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123F81D5F439600C41BAC /* 6159A468-FF58-35B6-AE97-F3D5C6BAFE66.bcsymbolmap in Resources */,
+				5FE123EF1D5F3D0800C41BAC /* Cartfile in Resources */,
+				5FE123FA1D5F439600C41BAC /* Fx.framework.dSYM in Resources */,
+				5FE123F71D5F439600C41BAC /* 531A9221-C248-3F61-9831-21E4AF8273FC.bcsymbolmap in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123CF1D5F3C0100C41BAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123F01D5F3D0800C41BAC /* Cartfile in Resources */,
+				5FE1240B1D5F43B800C41BAC /* A26F819D-249A-3D71-AD01-86B96CC9DDD2.bcsymbolmap in Resources */,
+				5FE1240D1D5F43B800C41BAC /* Fx.framework.dSYM in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FE123A31D5F3AEB00C41BAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123EA1D5F3CF200C41BAC /* World.swift in Sources */,
+				5FE123E41D5F3CF200C41BAC /* Entity.swift in Sources */,
+				5FE123E71D5F3CF200C41BAC /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123B41D5F3BAC00C41BAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123EB1D5F3CF200C41BAC /* World.swift in Sources */,
+				5FE123E51D5F3CF200C41BAC /* Entity.swift in Sources */,
+				5FE123E81D5F3CF200C41BAC /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FE123CC1D5F3C0100C41BAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FE123EC1D5F3CF200C41BAC /* World.swift in Sources */,
+				5FE123E61D5F3CF200C41BAC /* Entity.swift in Sources */,
+				5FE123E91D5F3CF200C41BAC /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5FE123AE1D5F3AEB00C41BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5FE123AF1D5F3AEB00C41BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FE123B11D5F3AEB00C41BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Meta/macOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.p0ed.PowerCore;
+				PRODUCT_NAME = PowerCore;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5FE123B21D5F3AEB00C41BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Meta/macOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.p0ed.PowerCore;
+				PRODUCT_NAME = PowerCore;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5FE123BF1D5F3BAD00C41BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Meta/iOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.p0ed.PowerCore-iOS";
+				PRODUCT_NAME = PowerCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5FE123C01D5F3BAD00C41BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Meta/iOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.p0ed.PowerCore-iOS";
+				PRODUCT_NAME = PowerCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5FE123D71D5F3C0100C41BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Meta/tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.p0ed.PowerCore-tvOS";
+				PRODUCT_NAME = PowerCore;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		5FE123D81D5F3C0100C41BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Meta/tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.p0ed.PowerCore-tvOS";
+				PRODUCT_NAME = PowerCore;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FE123A21D5F3AEB00C41BAC /* Build configuration list for PBXProject "PowerCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FE123AE1D5F3AEB00C41BAC /* Debug */,
+				5FE123AF1D5F3AEB00C41BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FE123B01D5F3AEB00C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FE123B11D5F3AEB00C41BAC /* Debug */,
+				5FE123B21D5F3AEB00C41BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FE123BE1D5F3BAD00C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FE123BF1D5F3BAD00C41BAC /* Debug */,
+				5FE123C01D5F3BAD00C41BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5FE123D61D5F3C0100C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FE123D71D5F3C0100C41BAC /* Debug */,
+				5FE123D81D5F3C0100C41BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5FE1239F1D5F3AEB00C41BAC /* Project object */;
+}
