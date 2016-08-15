@@ -3,18 +3,17 @@ import Fx
 typealias StoreID = UInt16
 
 public final class Store<Component> {
-	public typealias Index = Int
 
 	private weak var entityManager: EntityManager?
 
 	private let id: StoreID
 	private var entities: ContiguousArray<Entity> = []
 	private var components: ContiguousArray<Component> = []
-	private var indexes: ContiguousArray<MutableBox<Index>> = []
-	private var map: [Entity: Index] = [:]
+	private var indexes: ContiguousArray<MutableBox<Int>> = []
+	private var map: [Entity: Int] = [:]
 
-	public let newComponents: Stream<Index>
-	private let newComponentsPipe: Index -> ()
+	public let newComponents: Stream<Int>
+	private let newComponentsPipe: Int -> ()
 
 	public let removedComponents: Stream<(Entity, Component)>
 	private let removedComponentsPipe: (Entity, Component) -> ()
@@ -27,19 +26,19 @@ public final class Store<Component> {
 		(removedComponents, removedComponentsPipe) = Stream.pipe()
 	}
 
-	public func sharedIndexAt(idx: Index) -> Box<Index> {
+	public func sharedIndexAt(idx: Int) -> Box<Int> {
 		return indexes[idx].box
 	}
 
-	public func indexOf(entity: Entity) -> Index? {
+	public func indexOf(entity: Entity) -> Int? {
 		return map[entity]
 	}
 
-	public func entityAt(idx: Index) -> Entity {
+	public func entityAt(idx: Int) -> Entity {
 		return entities[idx]
 	}
 
-	public subscript(idx: Index) -> Component {
+	public subscript(idx: Int) -> Component {
 		get {
 			return components[idx]
 		}
@@ -48,7 +47,7 @@ public final class Store<Component> {
 		}
 	}
 
-	public func add(component: Component, to entity: Entity) -> Box<Index> {
+	public func add(component: Component, to entity: Entity) -> Int {
 		let idx = components.count
 		let sharedIdx = MutableBox(idx)
 
@@ -63,24 +62,24 @@ public final class Store<Component> {
 
 		newComponentsPipe(idx)
 
-		return sharedIdx.box
+		return idx
 	}
 
-	public func removeAt(idx: Index) {
+	public func removeAt(idx: Int) {
 		let entity = entities[idx]
 		let component = components[idx]
-		let lastIndex = entities.endIndex.predecessor()
-		let lastEntity = entities[lastIndex]
+		let lastInt = entities.endIndex.predecessor()
+		let lastEntity = entities[lastInt]
 
-		entities[idx] = entities[lastIndex]
+		entities[idx] = entities[lastInt]
 		entities.removeLast()
 
-		components[idx] = components[lastIndex]
+		components[idx] = components[lastInt]
 		components.removeLast()
 
-		let sharedIndex = indexes[lastIndex]
-		sharedIndex.value = idx
-		indexes[idx] = sharedIndex
+		let sharedInt = indexes[lastInt]
+		sharedInt.value = idx
+		indexes[idx] = sharedInt
 		indexes.removeLast()
 
 		map[lastEntity] = idx

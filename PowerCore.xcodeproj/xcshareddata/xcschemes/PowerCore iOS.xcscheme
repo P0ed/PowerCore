@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FE123B81D5F3BAC00C41BAC"
-               BuildableName = "PowerCore_iOS.framework"
+               BuildableName = "PowerCore.framework"
                BlueprintName = "PowerCore_iOS"
                ReferencedContainer = "container:PowerCore.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FE123B81D5F3BAC00C41BAC"
-            BuildableName = "PowerCore_iOS.framework"
+            BuildableName = "PowerCore.framework"
             BlueprintName = "PowerCore_iOS"
             ReferencedContainer = "container:PowerCore.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FE123B81D5F3BAC00C41BAC"
-            BuildableName = "PowerCore_iOS.framework"
+            BuildableName = "PowerCore.framework"
             BlueprintName = "PowerCore_iOS"
             ReferencedContainer = "container:PowerCore.xcodeproj">
          </BuildableReference>

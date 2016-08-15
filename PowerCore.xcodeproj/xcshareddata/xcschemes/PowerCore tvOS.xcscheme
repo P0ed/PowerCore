@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FE123D01D5F3C0100C41BAC"
-               BuildableName = "PowerCore_tvOS.framework"
+               BuildableName = "PowerCore.framework"
                BlueprintName = "PowerCore_tvOS"
                ReferencedContainer = "container:PowerCore.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FE123D01D5F3C0100C41BAC"
-            BuildableName = "PowerCore_tvOS.framework"
+            BuildableName = "PowerCore.framework"
             BlueprintName = "PowerCore_tvOS"
             ReferencedContainer = "container:PowerCore.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FE123D01D5F3C0100C41BAC"
-            BuildableName = "PowerCore_tvOS.framework"
+            BuildableName = "PowerCore.framework"
             BlueprintName = "PowerCore_tvOS"
             ReferencedContainer = "container:PowerCore.xcodeproj">
          </BuildableReference>
