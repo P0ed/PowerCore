@@ -26,8 +26,8 @@ public final class EntityManager {
 	}
 
 	func setRemoveHandle(entity: Entity, storeID: StoreID, handle: RemoveHandle?) {
-		var handles = removeHandles[entity]
-		handles?[storeID] = handle
+		var handles = removeHandles[entity] ?? [:]
+		handles[storeID] = handle
 		removeHandles[entity] = handles
 	}
 }
