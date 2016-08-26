@@ -26,67 +26,75 @@ public final class Store<Component> {
 		(removedComponents, removedComponentsPipe) = Stream.pipe()
 	}
 
-	public func sharedIndexAt(idx: Int) -> Box<Int> {
-		return indexes[idx].box
+	public func sharedIndexAt(index: Int) -> Box<Int> {
+		return indexes[index].box
 	}
 
 	public func indexOf(entity: Entity) -> Int? {
 		return map[entity]
 	}
 
-	public func entityAt(idx: Int) -> Entity {
-		return entities[idx]
+	public func entityAt(index: Int) -> Entity {
+		return entities[index]
 	}
 
-	public subscript(idx: Int) -> Component {
+	public subscript(index: Int) -> Component {
 		get {
-			return components[idx]
+			return components[index]
 		}
 		set(component) {
-			components[idx] = component
+			components[index] = component
 		}
 	}
 
 	public func add(component: Component, to entity: Entity) -> Int {
-		let idx = components.count
-		let sharedIdx = MutableBox(idx)
+		let index = components.count
+		let sharedIndex = MutableBox(index)
 
 		entities.append(entity)
 		components.append(component)
-		indexes.append(sharedIdx)
-		map[entity] = idx
+		indexes.append(sharedIndex)
+		map[entity] = index
 
 		entityManager?.setRemoveHandle(entity, storeID: id) { [weak self] in
-			self?.removeAt(sharedIdx.value)
+			self?.removeAt(sharedIndex.value)
 		}
 
-		newComponentsPipe(idx)
+		newComponentsPipe(index)
 
-		return idx
+		return index
 	}
 
-	public func removeAt(idx: Int) {
-		let entity = entities[idx]
-		let component = components[idx]
+	public func removeAt(index: Int) {
+		let entity = entities[index]
+		let component = components[index]
 		let lastInt = entities.endIndex.predecessor()
 		let lastEntity = entities[lastInt]
 
-		entities[idx] = entities[lastInt]
+		entities[index] = entities[lastInt]
 		entities.removeLast()
 
-		components[idx] = components[lastInt]
+		components[index] = components[lastInt]
 		components.removeLast()
 
-		let sharedInt = indexes[lastInt]
-		sharedInt.value = idx
-		indexes[idx] = sharedInt
+		let sharedIndex = indexes[lastInt]
+		sharedIndex.value = index
+		indexes[index] = sharedIndex
 		indexes.removeLast()
 
-		map[lastEntity] = idx
+		map[lastEntity] = index
 		map.removeValueForKey(entity)
 
 		entityManager?.setRemoveHandle(entity, storeID: id, handle: nil)
 
 		removedComponentsPipe(entity, component)
+	}
+}
+
+extension Store: SequenceType {
+	public typealias Generator = ContiguousArray<Component>.Generator
+
+	public func generate() -> Store.Generator {
+		return components.generate()
 	}
 }
