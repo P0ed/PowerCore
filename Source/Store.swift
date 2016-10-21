@@ -8,33 +8,33 @@ public final class Store<Component> {
 
 	private let id: StoreID
 	private var entities: ContiguousArray<Entity> = []
-	private var components: ContiguousArray<Component> = []
+	fileprivate var components: ContiguousArray<Component> = []
 	private var indexes: ContiguousArray<MutableBox<Int>> = []
 	private var map: [Entity: Int] = [:]
 
-	public let newComponents: Stream<Int>
-	private let newComponentsPipe: Int -> ()
+	public let newComponents: Signal<Int>
+	private let newComponentsPipe: (Int) -> ()
 
-	public let removedComponents: Stream<(Entity, Component)>
+	public let removedComponents: Signal<(Entity, Component)>
 	private let removedComponentsPipe: (Entity, Component) -> ()
 
 	init(id: StoreID, entityManager: EntityManager) {
 		self.id = id
 		self.entityManager = entityManager
 
-		(newComponents, newComponentsPipe) = Stream.pipe()
-		(removedComponents, removedComponentsPipe) = Stream.pipe()
+		(newComponents, newComponentsPipe) = Signal.pipe()
+		(removedComponents, removedComponentsPipe) = Signal.pipe()
 	}
 
-	public func sharedIndexAt(index: Int) -> Box<Int> {
+	public func sharedIndexAt(_ index: Int) -> Box<Int> {
 		return indexes[index].box
 	}
 
-	public func indexOf(entity: Entity) -> Int? {
+	public func indexOf(_ entity: Entity) -> Int? {
 		return map[entity]
 	}
 
-	public func entityAt(index: Int) -> Entity {
+	public func entityAt(_ index: Int) -> Entity {
 		return entities[index]
 	}
 
@@ -47,6 +47,7 @@ public final class Store<Component> {
 		}
 	}
 
+	@discardableResult
 	public func add(component: Component, to entity: Entity) -> Int {
 		let index = components.count
 		let sharedIndex = MutableBox(index)
@@ -56,7 +57,7 @@ public final class Store<Component> {
 		indexes.append(sharedIndex)
 		map[entity] = index
 
-		entityManager?.setRemoveHandle(entity, storeID: id) { [weak self] in
+		entityManager?.setRemoveHandle(entity: entity, storeID: id) { [weak self] in
 			self?.removeAt(sharedIndex.value)
 		}
 
@@ -65,10 +66,10 @@ public final class Store<Component> {
 		return index
 	}
 
-	public func removeAt(index: Int) {
+	public func removeAt(_ index: Int) {
 		let entity = entities[index]
 		let component = components[index]
-		let lastInt = entities.endIndex.predecessor()
+		let lastInt = entities.endIndex - 1
 		let lastEntity = entities[lastInt]
 
 		entities[index] = entities[lastInt]
@@ -83,18 +84,18 @@ public final class Store<Component> {
 		indexes.removeLast()
 
 		map[lastEntity] = index
-		map.removeValueForKey(entity)
+		map[entity] = nil
 
-		entityManager?.setRemoveHandle(entity, storeID: id, handle: nil)
+		entityManager?.setRemoveHandle(entity: entity, storeID: id, handle: nil)
 
 		removedComponentsPipe(entity, component)
 	}
 }
 
-extension Store: SequenceType {
-	public typealias Generator = ContiguousArray<Component>.Generator
+extension Store: Sequence {
+	public typealias Iterator = ContiguousArray<Component>.Iterator
 
-	public func generate() -> Store.Generator {
-		return components.generate()
+	public func makeIterator() -> Store.Iterator {
+		return components.makeIterator()
 	}
 }

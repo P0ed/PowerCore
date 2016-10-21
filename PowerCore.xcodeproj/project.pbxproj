@@ -290,6 +290,7 @@
 				TargetAttributes = {
 					5FE123A71D5F3AEB00C41BAC = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					5FE123B81D5F3BAC00C41BAC = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -495,6 +496,7 @@
 				PRODUCT_NAME = PowerCore;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -519,6 +521,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.p0ed.PowerCore;
 				PRODUCT_NAME = PowerCore;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -544,6 +547,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -569,6 +573,7 @@
 				PRODUCT_NAME = PowerCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -594,6 +599,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -618,6 +624,7 @@
 				PRODUCT_NAME = PowerCore;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -652,6 +659,7 @@
 				5FE123C01D5F3BAD00C41BAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FE123D61D5F3C0100C41BAC /* Build configuration list for PBXNativeTarget "PowerCore_tvOS" */ = {
 			isa = XCConfigurationList;
@@ -660,6 +668,7 @@
 				5FE123D81D5F3C0100C41BAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

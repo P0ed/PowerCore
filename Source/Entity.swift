@@ -7,10 +7,10 @@ extension Entity: Hashable {
 	public var hashValue: Int {
 		return id.hashValue
 	}
-}
 
-public func ==(lhs: Entity, rhs: Entity) -> Bool {
-	return lhs.id == rhs.id
+	public static func ==(lhs: Entity, rhs: Entity) -> Bool {
+		return lhs.id == rhs.id
+	}
 }
 
 public final class EntityManager {
