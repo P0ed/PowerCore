@@ -7,7 +7,7 @@ public final class Store<Component> {
 	private weak var entityManager: EntityManager?
 
 	private let id: StoreID
-	private var entities: ContiguousArray<Entity> = []
+	fileprivate var entities: ContiguousArray<Entity> = []
 	fileprivate var components: ContiguousArray<Component> = []
 	private var indexes: ContiguousArray<MutableBox<Int>> = []
 	private var map: [Entity: Int] = [:]
@@ -97,5 +97,19 @@ extension Store: Sequence {
 
 	public func makeIterator() -> Store.Iterator {
 		return components.makeIterator()
+	}
+}
+
+extension Store {
+
+	func remove(where f: (Entity, Component) -> Bool) {
+		var index = 0
+		while index < components.count {
+			if f(entities[index], components[index]) {
+				removeAt(index)
+			} else {
+				index += 1
+			}
+		}
 	}
 }
