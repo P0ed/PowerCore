@@ -90,6 +90,10 @@ public final class Store<Component> {
 
 		removedComponentsPipe(entity, component)
 	}
+
+	public var indices: CountableRange<Int> {
+		return 0..<entities.count
+	}
 }
 
 extension Store: Sequence {
@@ -100,9 +104,9 @@ extension Store: Sequence {
 	}
 }
 
-extension Store {
+public extension Store {
 
-	func remove(where f: (Entity, Component) -> Bool) {
+	public func remove(where f: (Entity, Component) -> Bool) {
 		var index = 0
 		while index < components.count {
 			if f(entities[index], components[index]) {
