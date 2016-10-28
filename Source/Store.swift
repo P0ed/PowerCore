@@ -4,7 +4,7 @@ typealias StoreID = UInt16
 
 public final class Store<Component> {
 
-	private weak var entityManager: EntityManager?
+	fileprivate weak var entityManager: EntityManager!
 
 	private let id: StoreID
 	fileprivate var entities: ContiguousArray<Entity> = []
@@ -106,11 +106,22 @@ extension Store: Sequence {
 
 public extension Store {
 
-	public func remove(where f: (Entity, Component) -> Bool) {
+	public func removeComponents(where f: (Entity, Component) -> Bool) {
 		var index = 0
 		while index < components.count {
 			if f(entities[index], components[index]) {
 				removeAt(index)
+			} else {
+				index += 1
+			}
+		}
+	}
+
+	public func removeEntities(where f: (Entity, Component) -> Bool) {
+		var index = 0
+		while index < components.count {
+			if f(entities[index], components[index]) {
+				entityManager.removeEntity(entities[index])
 			} else {
 				index += 1
 			}

@@ -25,6 +25,14 @@ public final class EntityManager {
 		return entity
 	}
 
+	public func removeEntity(_ entity: Entity) {
+		if let handles = removeHandles.removeValue(forKey: entity) {
+			for handle in handles.values {
+				handle()
+			}
+		}
+	}
+
 	func setRemoveHandle(entity: Entity, storeID: StoreID, handle: RemoveHandle?) {
 		var handles = removeHandles[entity] ?? [:]
 		handles[storeID] = handle
