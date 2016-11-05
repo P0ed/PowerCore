@@ -47,6 +47,11 @@ public final class Store<Component> {
 		}
 	}
 
+	public func instanceOf(_ entity: Entity) -> Component? {
+		guard let index = indexOf(entity) else { return nil }
+		return self[index]
+	}
+
 	@discardableResult
 	public func add(component: Component, to entity: Entity) -> Int {
 		let index = components.count
