@@ -1,16 +1,19 @@
 public struct Entity {
 	let id: UInt64
 
-	var generation: Int {
-		return Int(id >> 32 & Entity.mask)
+	var generation: UInt32 {
+		return UInt32(id >> 32)
 	}
-	var index: Int {
-		return Int(id & Entity.mask)
+	var index: UInt32 {
+		return UInt32(id & Entity.mask)
 	}
 
-	var next: Entity {
-		let nextGen = generation < Int(UInt32.max) ? generation + 1 : 0
-		return Entity(id: UInt64(nextGen << 32 | index))
+	init(generation: UInt32, index: UInt32) {
+		id = UInt64(generation) << 32 | UInt64(index)
+	}
+
+	var next: UInt32 {
+		return generation < .max ? generation + 1 : 0
 	}
 
 	static let mask: UInt64 = (1 << 32) - 1
@@ -30,16 +33,17 @@ extension Entity: Hashable {
 public final class EntityManager {
 	typealias RemoveHandle = () -> ()
 
-	private var entities: [Entity] = []
+	private var generation: [UInt32] = []
+	private var freeIndices: [UInt32] = []
 	private var removeHandles: [Entity: [StoreID: RemoveHandle]] = [:]
-	private var freeList: [Entity] = []
 
 	public func create() -> Entity {
-		if freeList.count > 0 {
-			return freeList.removeLast()
+		if freeIndices.count > 0 {
+			let index = freeIndices.removeLast()
+			return Entity(generation: generation[Int(index)], index: index)
 		} else {
-			let entity = Entity(id: UInt64(entities.count))
-			entities.append(entity)
+			let entity = Entity(generation: 0, index: UInt32(generation.count))
+			generation.append(entity.generation)
 			return entity
 		}
 	}
@@ -52,13 +56,12 @@ public final class EntityManager {
 			}
 		}
 
-		let next = entity.next
-		entities[entity.index] = next
-		freeList.append(next)
+		generation[Int(entity.index)] = entity.next
+		freeIndices.append(entity.index)
 	}
 
 	func isAlive(_ entity: Entity) -> Bool {
-		return entities[entity.index] == entity
+		return generation[Int(entity.index)] == entity.generation
 	}
 
 	func setRemoveHandle(entity: Entity, storeID: StoreID, handle: RemoveHandle?) {
