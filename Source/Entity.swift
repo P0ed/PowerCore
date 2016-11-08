@@ -1,5 +1,19 @@
 public struct Entity {
 	let id: UInt64
+
+	var generation: Int {
+		return Int(id >> 32 & Entity.mask)
+	}
+	var index: Int {
+		return Int(id & Entity.mask)
+	}
+
+	var next: Entity {
+		let nextGen = generation < Int(UInt32.max) ? generation + 1 : 0
+		return Entity(id: UInt64(nextGen << 32 | index))
+	}
+
+	static let mask: UInt64 = (1 << 32) - 1
 }
 
 extension Entity: Hashable {
@@ -16,21 +30,36 @@ extension Entity: Hashable {
 public final class EntityManager {
 	typealias RemoveHandle = () -> ()
 
-	private var unusedID: UInt64 = 0
+	private var entities: [Entity] = []
 	private var removeHandles: [Entity: [StoreID: RemoveHandle]] = [:]
+	private var freeList: [Entity] = []
 
 	public func create() -> Entity {
-		let entity = Entity(id: unusedID)
-		unusedID += 1
-		return entity
+		if freeList.count > 0 {
+			let entity = freeList.removeLast().next
+			entities[entity.index] = entity
+			return entity
+		}
+		else {
+			let entity = Entity(id: UInt64(entities.count))
+			entities.append(entity)
+			return entity
+		}
 	}
 
 	public func removeEntity(_ entity: Entity) {
+
 		if let handles = removeHandles.removeValue(forKey: entity) {
 			for handle in handles.values {
 				handle()
 			}
 		}
+
+		freeList.append(entity)
+	}
+
+	func isAlive(_ entity: Entity) -> Bool {
+		return entities[entity.index] == entity
 	}
 
 	func setRemoveHandle(entity: Entity, storeID: StoreID, handle: RemoveHandle?) {

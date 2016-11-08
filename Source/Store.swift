@@ -7,9 +7,9 @@ public final class Store<Component> {
 	fileprivate weak var entityManager: EntityManager!
 
 	private let id: StoreID
-	fileprivate var entities: ContiguousArray<Entity> = []
-	fileprivate var components: ContiguousArray<Component> = []
-	private var indexes: ContiguousArray<MutableBox<Int>> = []
+	fileprivate var entities: [Entity] = []
+	fileprivate var components: [Component] = []
+	private var indexes: [MutableBox<Int>] = []
 	private var map: [Entity: Int] = [:]
 
 	public let newComponents: Signal<Int>
@@ -102,7 +102,7 @@ public final class Store<Component> {
 }
 
 extension Store: Sequence {
-	public typealias Iterator = ContiguousArray<Component>.Iterator
+	public typealias Iterator = Array<Component>.Iterator
 
 	public func makeIterator() -> Store.Iterator {
 		return components.makeIterator()
