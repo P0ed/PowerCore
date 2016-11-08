@@ -36,11 +36,8 @@ public final class EntityManager {
 
 	public func create() -> Entity {
 		if freeList.count > 0 {
-			let entity = freeList.removeLast().next
-			entities[entity.index] = entity
-			return entity
-		}
-		else {
+			return freeList.removeLast()
+		} else {
 			let entity = Entity(id: UInt64(entities.count))
 			entities.append(entity)
 			return entity
@@ -55,7 +52,9 @@ public final class EntityManager {
 			}
 		}
 
-		freeList.append(entity)
+		let next = entity.next
+		entities[entity.index] = next
+		freeList.append(next)
 	}
 
 	func isAlive(_ entity: Entity) -> Bool {

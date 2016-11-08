@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FCE00951DD257CB009DD942 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE00941DD257CB009DD942 /* Component.swift */; };
 		5FE123DE1D5F3C4E00C41BAC /* PowerCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123DA1D5F3C2200C41BAC /* PowerCore_tvOS.h */; };
 		5FE123DF1D5F3C5500C41BAC /* PowerCore_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123C61D5F3BE500C41BAC /* PowerCore_macOS.h */; };
 		5FE123E01D5F3C5900C41BAC /* PowerCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE123C31D5F3BE500C41BAC /* PowerCore_iOS.h */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FCE00941DD257CB009DD942 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		5FE123A81D5F3AEB00C41BAC /* PowerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PowerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE123B91D5F3BAC00C41BAC /* PowerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PowerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE123C21D5F3BE500C41BAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				5FE123E11D5F3CF200C41BAC /* Entity.swift */,
 				5FE123E21D5F3CF200C41BAC /* Store.swift */,
 				5FE123E31D5F3CF200C41BAC /* World.swift */,
+				5FCE00941DD257CB009DD942 /* Component.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE123EA1D5F3CF200C41BAC /* World.swift in Sources */,
+				5FCE00951DD257CB009DD942 /* Component.swift in Sources */,
 				5FE123E41D5F3CF200C41BAC /* Entity.swift in Sources */,
 				5FE123E71D5F3CF200C41BAC /* Store.swift in Sources */,
 			);

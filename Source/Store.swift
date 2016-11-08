@@ -2,21 +2,21 @@ import Fx
 
 typealias StoreID = UInt16
 
-public final class Store<Component> {
+public final class Store<C> {
 
-	fileprivate weak var entityManager: EntityManager!
+	weak var entityManager: EntityManager!
 
 	private let id: StoreID
 	fileprivate var entities: [Entity] = []
-	fileprivate var components: [Component] = []
+	fileprivate var components: [C] = []
 	private var indexes: [MutableBox<Int>] = []
 	private var map: [Entity: Int] = [:]
 
 	public let newComponents: Signal<Int>
 	private let newComponentsPipe: (Int) -> ()
 
-	public let removedComponents: Signal<(Entity, Component)>
-	private let removedComponentsPipe: (Entity, Component) -> ()
+	public let removedComponents: Signal<(Entity, C)>
+	private let removedComponentsPipe: (Entity, C) -> ()
 
 	init(id: StoreID, entityManager: EntityManager) {
 		self.id = id
@@ -38,7 +38,7 @@ public final class Store<Component> {
 		return entities[index]
 	}
 
-	public subscript(index: Int) -> Component {
+	public subscript(index: Int) -> C {
 		get {
 			return components[index]
 		}
@@ -47,13 +47,12 @@ public final class Store<Component> {
 		}
 	}
 
-	public func instanceOf(_ entity: Entity) -> Component? {
-		guard let index = indexOf(entity) else { return nil }
-		return self[index]
+	public func instanceAt(_ index: Int) -> Component<C> {
+		return Component(store: self, entity: entities[index], index: sharedIndexAt(index))
 	}
 
 	@discardableResult
-	public func add(component: Component, to entity: Entity) -> Int {
+	public func add(component: C, to entity: Entity) -> Int {
 		let index = components.count
 		let sharedIndex = MutableBox(index)
 
@@ -102,7 +101,7 @@ public final class Store<Component> {
 }
 
 extension Store: Sequence {
-	public typealias Iterator = Array<Component>.Iterator
+	public typealias Iterator = Array<C>.Iterator
 
 	public func makeIterator() -> Store.Iterator {
 		return components.makeIterator()
@@ -111,7 +110,7 @@ extension Store: Sequence {
 
 public extension Store {
 
-	public func removeComponents(where f: (Entity, Component) -> Bool) {
+	public func removeComponents(where f: (Entity, C) -> Bool) {
 		var index = 0
 		while index < components.count {
 			if f(entities[index], components[index]) {
@@ -122,7 +121,7 @@ public extension Store {
 		}
 	}
 
-	public func removeEntities(where f: (Entity, Component) -> Bool) {
+	public func removeEntities(where f: (Entity, C) -> Bool) {
 		var index = 0
 		while index < components.count {
 			if f(entities[index], components[index]) {
