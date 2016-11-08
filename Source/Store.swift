@@ -31,7 +31,7 @@ public final class Store<C> {
 	}
 
 	public func indexOf(_ entity: Entity) -> Int? {
-		return map[entity]
+		return entityManager.isAlive(entity) ? map[entity] : nil
 	}
 
 	public func entityAt(_ index: Int) -> Entity {
