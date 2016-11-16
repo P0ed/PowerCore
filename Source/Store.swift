@@ -135,8 +135,10 @@ public extension Store {
 	public func removeEntities(where f: (Entity, C) -> Bool) {
 		var index = 0
 		while index < components.count {
-			if f(entities[index], components[index]) {
-				entityManager.removeEntity(entities[index])
+			let entity = entities[index]
+			if f(entity, components[index]) {
+				removeAt(index)
+				entityManager.removeEntity(entity)
 			} else {
 				index += 1
 			}

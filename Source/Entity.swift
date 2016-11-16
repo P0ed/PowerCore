@@ -49,15 +49,17 @@ public final class EntityManager {
 	}
 
 	public func removeEntity(_ entity: Entity) {
+		if generation[Int(entity.index)] == entity.generation {
 
-		if let handles = removeHandles.removeValue(forKey: entity) {
-			for handle in handles.values {
-				handle()
+			if let handles = removeHandles.removeValue(forKey: entity) {
+				for handle in handles.values {
+					handle()
+				}
 			}
-		}
 
-		generation[Int(entity.index)] = entity.next
-		freeIndices.append(entity.index)
+			generation[Int(entity.index)] = entity.next
+			freeIndices.append(entity.index)
+		}
 	}
 
 	public func isAlive(_ entity: Entity) -> Bool {
