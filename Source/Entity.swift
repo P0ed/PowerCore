@@ -60,7 +60,7 @@ public final class EntityManager {
 		freeIndices.append(entity.index)
 	}
 
-	func isAlive(_ entity: Entity) -> Bool {
+	public func isAlive(_ entity: Entity) -> Bool {
 		return generation[Int(entity.index)] == entity.generation
 	}
 

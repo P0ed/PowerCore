@@ -4,7 +4,7 @@ typealias StoreID = UInt16
 
 public final class Store<C> {
 
-	weak var entityManager: EntityManager!
+	public unowned var entityManager: EntityManager
 
 	private let id: StoreID
 	fileprivate var entities: [Entity] = []
@@ -61,13 +61,24 @@ public final class Store<C> {
 		indexes.append(sharedIndex)
 		map[entity] = index
 
-		entityManager?.setRemoveHandle(entity: entity, storeID: id) { [weak self] in
+		entityManager.setRemoveHandle(entity: entity, storeID: id) { [weak self] in
 			self?.removeAt(sharedIndex.value)
 		}
 
 		newComponentsPipe(index)
 
 		return index
+	}
+
+	@discardableResult
+	func set(component: C, to entity: Entity) {
+		guard entityManager.isAlive(entity) else { return }
+
+		if let index = map[entity] {
+			self[index] = component
+		} else {
+			add(component: component, to: entity)
+		}
 	}
 
 	public func removeAt(_ index: Int) {
@@ -90,7 +101,7 @@ public final class Store<C> {
 		map[lastEntity] = index
 		map[entity] = nil
 
-		entityManager?.setRemoveHandle(entity: entity, storeID: id, handle: nil)
+		entityManager.setRemoveHandle(entity: entity, storeID: id, handle: nil)
 
 		removedComponentsPipe(entity, component)
 	}

@@ -2,7 +2,7 @@ import Fx
 
 public struct Component<A> {
 	let store: Store<A>
-	let entity: Entity
+	public let entity: Entity
 	let index: Box<Int>
 
 	public var value: A? {
