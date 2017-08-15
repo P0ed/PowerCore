@@ -70,7 +70,6 @@ public final class Store<C> {
 		return index
 	}
 
-	@discardableResult
 	func set(component: C, to entity: Entity) {
 		guard entityManager.isAlive(entity) else { return }
 
