@@ -47,8 +47,12 @@ public final class Store<C> {
 		}
 	}
 
-	public func instanceAt(_ index: Int) -> Component<C> {
-		return Component(store: self, entity: entities[index], index: sharedIndexAt(index))
+	public func weakRefAt(_ index: Int) -> WeakRef<C> {
+		return WeakRef(store: self, entity: entities[index], index: sharedIndexAt(index))
+	}
+
+	public func refAt(_ index: Int) -> Ref<C> {
+		return Ref(store: self, entity: entities[index], index: index)
 	}
 
 	@discardableResult
