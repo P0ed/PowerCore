@@ -16,7 +16,7 @@ public final class Store<C> {
 	private let newComponentsPipe: (Int) -> ()
 
 	public let removedComponents: Signal<(Entity, C)>
-	private let removedComponentsPipe: (Entity, C) -> ()
+	private let removedComponentsPipe: ((Entity, C)) -> ()
 
 	init(id: StoreID, entityManager: EntityManager) {
 		self.id = id
@@ -106,7 +106,7 @@ public final class Store<C> {
 
 		entityManager.setRemoveHandle(entity: entity, storeID: id, handle: nil)
 
-		removedComponentsPipe(entity, component)
+		removedComponentsPipe((entity, component))
 	}
 
 	public var indices: CountableRange<Int> {
