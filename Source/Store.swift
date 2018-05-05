@@ -7,8 +7,8 @@ public final class Store<C> {
 	public unowned var entityManager: EntityManager
 
 	private let id: StoreID
-	fileprivate var entities: [Entity] = []
-	fileprivate var components: [C] = []
+	private var entities: [Entity] = []
+	private var components: [C] = []
 	private var indexes: [MutableBox<Int>] = []
 	private var map: [Entity: Int] = [:]
 
@@ -26,8 +26,8 @@ public final class Store<C> {
 		(removedComponents, removedComponentsPipe) = Signal.pipe()
 	}
 
-	public func sharedIndexAt(_ index: Int) -> Box<Int> {
-		return indexes[index].box
+	public func sharedIndexAt(_ index: Int) -> ComponentIdx<C> {
+		return ComponentIdx(box: indexes[index].box)
 	}
 
 	public func indexOf(_ entity: Entity) -> Int? {
@@ -45,6 +45,11 @@ public final class Store<C> {
 		set(component) {
 			components[index] = component
 		}
+	}
+
+	public subscript(index: ComponentIdx<C>) -> C {
+		get { return self[index.box.value] }
+		set { self[index.box.value] = newValue }
 	}
 
 	public func weakRefAt(_ index: Int) -> WeakRef<C> {

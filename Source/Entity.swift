@@ -1,5 +1,5 @@
 public struct Entity {
-	let id: UInt64
+	private let id: UInt64
 
 	var generation: UInt32 {
 		return UInt32(id >> 32)

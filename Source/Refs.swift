@@ -1,14 +1,18 @@
 import Fx
 
+public struct ComponentIdx<C> {
+	let box: Box<Int>
+}
+
 public struct WeakRef<A> {
 	unowned let store: Store<A>
 	public let entity: Entity
-	let index: Box<Int>
+	let index: ComponentIdx<A>
 
 	public var value: A? {
 		get {
 			if store.entityManager.isAlive(entity) {
-				return store[index.value]
+				return store[index]
 			} else {
 				return nil
 			}
@@ -16,9 +20,9 @@ public struct WeakRef<A> {
 		nonmutating set {
 			if store.entityManager.isAlive(entity) {
 				if let value = newValue {
-					store[index.value] = value
+					store[index] = value
 				} else {
-					store.removeAt(index.value)
+					store.removeAt(index.box.value)
 				}
 			}
 		}
@@ -26,7 +30,7 @@ public struct WeakRef<A> {
 
 	var ref: Ref<A>? {
 		if store.entityManager.isAlive(entity) {
-			return store.refAt(index.value)
+			return store.refAt(index.box.value)
 		}
 		return nil
 	}
@@ -38,12 +42,8 @@ public struct Ref<A> {
 	let index: Int
 
 	public var value: A {
-		get {
-			return store[index]
-		}
-		nonmutating set {
-			return store[index] = newValue
-		}
+		get { return store[index] }
+		nonmutating set { return store[index] = newValue }
 	}
 
 	func delete() {
